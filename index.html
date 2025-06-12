@@ -4,8 +4,56 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
-		<script src="script.js"></script>
+		<script async src="script.js" defer></script>
 		<link rel="stylesheet" href="style.css" />
 	</head>
-	<body></body>
+	<body>
+		<div class="wrapper">
+			<nav class="navbar">
+				<div class="logo-container"></div>
+				<h1>Odin Library</h1>
+				<div class="button-container">
+					<button class="add-btn">New Book</button>
+				</div>
+			</nav>
+			<div class="library-container">
+				<div class="book-form">
+					<label for="book-title">
+						<span>Title:</span>
+						<input type="text" name="title" id="book-title" />
+					</label>
+					<label for="book-authoor">
+						<span>Author:</span>
+						<input type="text" name="author" id="book-author" />
+					</label>
+					<label for="book-pages">
+						<span>Pages:</span>
+						<input type="number" name="pages" id="book-pages" />
+					</label>
+					<label for="book-read">
+						<span>Read:</span>
+						<input type="checkbox" name="Read" id="book-read" />
+					</label>
+					<button type="submit">Add Book</button>
+				</div>
+				<div class="book-card">
+					<p>Title</p>
+					<p class="book-title"></p>
+					<p>Author</p>
+					<p class="book-author"></p>
+					<p>Pages</p>
+					<p class="book-pages"></p>
+					<p>Read <input type="checkbox" name="Read" id="read" /></p>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<img
+				style="width: 70px"
+				src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+				alt="GitHub"
+			/>
+			Made by vaanshii
+		</footer>
+	</body>
 </html>
