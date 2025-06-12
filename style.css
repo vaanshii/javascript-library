@@ -27,7 +27,7 @@ body {
 
 .navbar {
 	background-color: var(--secondary-clr);
-    
+
 	.container {
 		display: flex;
 		justify-content: space-between;
@@ -63,6 +63,86 @@ body {
 			background-color: #415989;
 		}
 		.add-btn:active {
+			position: relative;
+			top: 1px;
+		}
+	}
+}
+
+.library {
+	background-color: var(--primary-clr);
+
+	.book-form {
+		width: 400px;
+		height: 450px;
+		color: var(--font-clr);
+		background-color: var(--secondary-clr);
+		border: 6px solid #1f2f47;
+		border-radius: 18px;
+
+		visibility: hidden;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+        display: flex;
+        flex-direction: column;
+
+		h2 {
+			text-align: center;
+			margin-top: 8px;
+		}
+
+		span {
+			display: block;
+			margin-top: 1rem;
+			margin-bottom: 8px;
+			margin-left: 1rem;
+			font-size: 1.5rem;
+		}
+
+		input {
+			margin-left: 1.1rem;
+		}
+
+		input[type="text"],
+		input[type="number"] {
+			width: 90%;
+			border: 3px solid var(--font-clr);
+			border-radius: 8px;
+		}
+
+        input[type="number"] {
+            width: 20%;
+        }
+
+		input[type="checkbox"] {
+			margin-left: 0rem;
+			width: 1.2rem;
+			height: 1.1rem;
+		}
+
+		button {
+			background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+			background-color: #2e466e;
+			border-radius: 18px;
+			border: 4px solid #1f2f47;
+			cursor: pointer;
+			color: #ffffff;
+			font-size: 16px;
+			font-weight: bold;
+			padding: 8px 16px;
+			text-decoration: none;
+
+            align-self: center;
+		}
+
+        button:hover {
+			background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+			background-color: #415989;
+		}
+		button:active {
 			position: relative;
 			top: 1px;
 		}
