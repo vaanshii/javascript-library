@@ -1,0 +1,70 @@
+:root {
+	--primary-clr: #f1f0e9;
+	--secondary-clr: #cedf9f;
+	--card-clr: #f1f3c2;
+	--footer-clr: #27548a;
+	--main-font: "Lexend", sans-serif;
+	--main-font-size: 16px;
+	--font-clr: #2a4759;
+}
+
+body {
+	background-color: var(--primary-clr);
+	font-family: var(--main-font);
+	font-size: var(--main-font-size);
+}
+
+.wrapper {
+	height: 100vh;
+
+	display: grid;
+	grid-template-rows: 1.3fr 9fr 1fr;
+}
+
+.container {
+	margin: 0 50px;
+}
+
+.navbar {
+	background-color: var(--secondary-clr);
+    
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 100%;
+	}
+
+	img {
+		min-width: 90px;
+	}
+
+	h1 {
+		color: var(--font-clr);
+		font-size: 2.5rem;
+	}
+
+	.button-container {
+		.add-btn {
+			background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+			background-color: #2e466e;
+			border-radius: 34px;
+			border: 4px solid #1f2f47;
+			display: inline-block;
+			cursor: pointer;
+			color: #ffffff;
+			font-size: 20px;
+			font-weight: bold;
+			padding: 1rem 2rem;
+			text-decoration: none;
+		}
+		.add-btn:hover {
+			background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+			background-color: #415989;
+		}
+		.add-btn:active {
+			position: relative;
+			top: 1px;
+		}
+	}
+}
