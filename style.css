@@ -86,8 +86,8 @@ body {
 		left: 50%;
 		transform: translate(-50%, -50%);
 
-        display: flex;
-        flex-direction: column;
+		display: flex;
+		flex-direction: column;
 
 		h2 {
 			text-align: center;
@@ -113,9 +113,9 @@ body {
 			border-radius: 8px;
 		}
 
-        input[type="number"] {
-            width: 20%;
-        }
+		input[type="number"] {
+			width: 20%;
+		}
 
 		input[type="checkbox"] {
 			margin-left: 0rem;
@@ -135,10 +135,10 @@ body {
 			padding: 8px 16px;
 			text-decoration: none;
 
-            align-self: center;
+			align-self: center;
 		}
 
-        button:hover {
+		button:hover {
 			background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
 			background-color: #415989;
 		}
