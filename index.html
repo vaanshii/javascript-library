@@ -25,6 +25,7 @@
 			</nav>
 			<div class="library">
 				<div class="book-form">
+					<h2>Add Book Info</h2>
 					<label for="book-title">
 						<span>Title:</span>
 						<input type="text" name="title" id="book-title" />
@@ -38,19 +39,23 @@
 						<input type="number" name="pages" id="book-pages" />
 					</label>
 					<label for="book-read">
-						<span>Read:</span>
-						<input type="checkbox" name="Read" id="book-read" />
+						<span>
+							<input type="checkbox" name="Read" id="book-read" />
+							I have read this book.
+						</span>
 					</label>
-					<button type="submit">Add Book</button>
+					<button type="submit" id="submit-btn">Add Book</button>
 				</div>
+
+				<!-- This point is where the card is placed.-->
 				<div class="book-card">
-					<p>Title</p>
-					<p class="book-title"></p>
-					<p>Author</p>
-					<p class="book-author"></p>
-					<p>Pages</p>
-					<p class="book-pages"></p>
-					<p>Read <input type="checkbox" name="Read" id="read" /></p>
+					<p class="book-title">[PLACEHOLDER]</p>
+					<p>Author: <span class="book-author">Alessandra</span></p>
+					<p>Pages: <span class="book-pages">265</span></p>
+					<p>
+						<input type="checkbox" name="Read" id="read" /> I have read this
+						book
+					</p>
 				</div>
 			</div>
 			<footer>
@@ -59,7 +64,7 @@
 					src="/javascript-library/icons/github.svg"
 					alt="GitHub"
 				/>
-				Made by vaanshii
+				<p>Made by Vaanshii</p>
 			</footer>
 		</div>
 	</body>
