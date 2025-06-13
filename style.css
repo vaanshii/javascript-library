@@ -79,6 +79,8 @@ body {
 	width: 90%;
 	background-color: var(--primary-clr);
 	margin-top: 3rem;
+	margin-bottom: 1rem;
+
 	justify-self: center;
 	
 	display: grid;
@@ -196,6 +198,7 @@ body {
 		input[type="checkbox"] {
 			height: 14px;
 			width: 14px;
+			margin-right: 6px;
 		}
 	}
 }
