@@ -85,6 +85,19 @@ function BookCard(title, author, pages, isRead, id) {
 				},
 			],
 		},
+		{
+			tag: "div",
+			attributes: { class: "del-btn-container" },
+			children: [
+				{
+					tag: "button",
+					text: "Delete",
+					attributes: {
+						class: "delete-btn",
+					},
+				},
+			],
+		},
 	];
 }
 
