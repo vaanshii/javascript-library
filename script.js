@@ -5,7 +5,7 @@ const newBookBtn = document.querySelector(".add-btn");
 const submitBtn = document.querySelector("#submit-btn");
 const library = document.querySelector(".library");
 const cardReadCheck = document.querySelector(".isReadCheck");
-const formCloseBtn = document.querySelector('close-btn');
+const formCloseBtn = document.querySelector(".close-btn");
 
 // Elements in form
 const bookTitleName = document.getElementById("book-title");
@@ -92,10 +92,6 @@ function BookCard(title, author, pages, isRead, id) {
 
 // Creates new Book object and push it into the array.
 function addBookToLibrary(title, author, pages, isRead) {
-	if (!title || !author || !pages) {
-		alert("Fill out all the fields.");
-		return;
-	}
 	bookLibrary.push(new Book(title, author, pages, isRead));
 }
 
@@ -136,7 +132,7 @@ newBookBtn.addEventListener("click", () => {
 	bookForm.setAttribute("style", "visibility: visible");
 });
 
-formCloseBtn.addEventListener('click', () => {
+formCloseBtn.addEventListener("click", () => {
 	bookForm.setAttribute("style", "display: none");
 	bookForm.setAttribute("style", "visibility: hidden");
 });
@@ -148,6 +144,16 @@ submitBtn.addEventListener("click", (e) => {
 	let author = bookAuthorName.value;
 	let pages = bookPagesCount.value;
 	let isRead = bookIsRead.checked;
+
+	if (!title || !author || !pages) {
+		alert("Fill out all the fields.");
+		return;
+	}
+
+	if (isNaN(pages) || pages <= 0) {
+		alert("Pages must be a number greater than 0");
+		return;
+	}
 
 	addBookToLibrary(title, author, pages, isRead);
 	console.table(bookLibrary); // for logging
@@ -188,5 +194,4 @@ library.addEventListener("change", (e) => {
 	}
 
 	console.table(bookLibrary); // log the update
-	
 });
