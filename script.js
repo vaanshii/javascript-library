@@ -22,10 +22,20 @@ function Book(title, author, pages, isRead) {
 	this.id = crypto.randomUUID(); // Generates random unique ID for each Books.
 }
 
+// Prototype function
+
+Book.prototype.updateReadStatus= function (isRead) {
+	this.isRead = isRead;
+};
+
+Book.prototype.getID = function() {
+	return this.id;
+}
+
 // Object for creating multiple cards
-function BookCard(title, author, pages, isRead) {
+function BookCard(title, author, pages, isRead, id) {
 	this.tag = "div";
-	this.attributes = { class: "book-card" };
+	this.attributes = { class: "book-card", "data-id": id };
 	this.children = [
 		{
 			tag: "p",
@@ -62,7 +72,7 @@ function BookCard(title, author, pages, isRead) {
 					attributes: {
 						type: "checkbox",
 						name: "Read",
-						id: `read-${title}`,
+						id: `isRead-${id}`,
 						checked: isRead,
 					},
 				},
@@ -77,20 +87,16 @@ function BookCard(title, author, pages, isRead) {
 
 // FUNCTIONS ============================================================
 
-Book.prototype.getUniqueID(function () {
-	return this.id;
-});
-
 // Creates new Book object and push it into the array.
-function addBooktoLibrary(title, author, pages, isRead) {
+function addBookToLibrary(title, author, pages, isRead) {
 	bookLibrary.push(new Book(title, author, pages, isRead));
 }
 
 // for resetting input on add new book
 function resetInput() {
-	bookTitleName.value = '';
-	bookAuthorName.value = '';
-	bookPagesCount.value = '';
+	bookTitleName.value = "";
+	bookAuthorName.value = "";
+	bookPagesCount.value = "";
 	bookIsRead.checked = false;
 }
 
@@ -129,17 +135,20 @@ submitBtn.addEventListener("click", () => {
 	let pages = bookPagesCount.value;
 	let isRead = bookIsRead.checked;
 
-	addBooktoLibrary(title, author, pages, isRead);
+	addBookToLibrary(title, author, pages, isRead);
 	console.table(bookLibrary); // for logging
+
+	// Gets the current book and uses the prototype function to get its ID
+	let currentBookID = bookLibrary[bookLibrary.length - 1].getID();
 
 	// for creating the book card
 	const bookCard = createBookCardElement(
-		new BookCard(title, author, pages, isRead)
+		new BookCard(title, author, pages, isRead, currentBookID)
 	);
 	library.appendChild(bookCard);
 
 	// for applying check on checkbox
-	const isReadCheck = document.getElementById(`read-${title}`); // use to target the ID based on title
+	const isReadCheck = document.getElementById(`isRead-${currentBookID}`); // use to target the ID based on title
 	isReadCheck.checked = isRead;
 
 	resetInput();
