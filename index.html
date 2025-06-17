@@ -24,7 +24,7 @@
 				</div>
 			</nav>
 			<div class="library">
-				<div class="book-form">
+				<form class="book-form">
 					<div class="top">
 						<h2>Add Book Info</h2>
 						<button class="close-btn">
@@ -32,16 +32,35 @@
 						</button>
 					</div>
 					<label for="book-title">
-						<span>Title:</span>
-						<input type="text" name="title" id="book-title" />
+						<span>*Title:</span>
+						<input
+							type="text"
+							name="title"
+							id="book-title"
+							minlength="1"
+							required
+						/>
 					</label>
 					<label for="book-author">
 						<span>Author:</span>
-						<input type="text" name="author" id="book-author" />
+						<input
+							type="text"
+							name="author"
+							id="book-author"
+							minlength="3"
+							required
+						/>
 					</label>
 					<label for="book-pages">
 						<span>Pages:</span>
-						<input type="number" name="pages" id="book-pages" />
+						<input
+							type="number"
+							name="pages"
+							id="book-pages"
+							min="1"
+							max="2000"
+							required
+						/>
 					</label>
 					<label for="book-read">
 						<span>
@@ -50,7 +69,7 @@
 						</span>
 					</label>
 					<button type="submit" id="submit-btn">Add Book</button>
-				</div>
+				</form>
 
 				<!-- This point is where the card is placed.-->
 				<!-- <div class="book-card">
