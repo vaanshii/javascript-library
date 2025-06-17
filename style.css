@@ -64,10 +64,12 @@ body {
 			padding: 1rem 2rem;
 			text-decoration: none;
 		}
+
 		.add-btn:hover {
 			background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
 			background-color: #415989;
 		}
+
 		.add-btn:active {
 			position: relative;
 			top: 1px;
@@ -82,7 +84,7 @@ body {
 	margin-bottom: 1rem;
 
 	justify-self: center;
-	
+
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
 	justify-content: center;
@@ -102,19 +104,36 @@ body {
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		visibility: hidden;
+		visibility: visible;
 
 		display: flex;
 		flex-direction: column;
+
+		.top {
+			display: flex;
+			justify-content: space-around;
+			gap: 120px;
+			align-items: center;
+		}
 
 		h2 {
 			text-align: center;
 			margin-top: 8px;
 		}
 
+		.close-btn {
+			width: 2.4rem;
+			height: 2.4rem;
+
+			border: 4px solid #1f2f47;
+			border-radius: 24px;
+
+			background-color: rgb(250, 92, 92);
+		}
+
 		span {
 			display: block;
-			
+
 			margin-top: 1rem;
 			margin-bottom: 8px;
 			margin-left: 1rem;
@@ -143,7 +162,7 @@ body {
 			height: 1.1rem;
 		}
 
-		button {
+		#submit-btn {
 			background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
 			background-color: #2e466e;
 			border-radius: 18px;
@@ -158,11 +177,12 @@ body {
 			align-self: center;
 		}
 
-		button:hover {
+		#submit-btn:hover {
 			background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
 			background-color: #415989;
 		}
-		button:active {
+
+		#submit-btn:active {
 			position: relative;
 			top: 1px;
 		}
