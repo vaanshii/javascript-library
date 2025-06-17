@@ -4,6 +4,7 @@ const bookForm = document.querySelector(".book-form");
 const newBookBtn = document.querySelector(".add-btn");
 const submitBtn = document.querySelector("#submit-btn");
 const library = document.querySelector(".library");
+const cardReadCheck = document.querySelector(".isReadCheck");
 
 // Elements in form
 const bookTitleName = document.getElementById("book-title");
@@ -24,13 +25,13 @@ function Book(title, author, pages, isRead) {
 
 // Prototype function
 
-Book.prototype.updateReadStatus= function (isRead) {
+Book.prototype.updateReadStatus = function (isRead) {
 	this.isRead = isRead;
 };
 
-Book.prototype.getID = function() {
+Book.prototype.getID = function () {
 	return this.id;
-}
+};
 
 // Object for creating multiple cards
 function BookCard(title, author, pages, isRead, id) {
@@ -73,6 +74,7 @@ function BookCard(title, author, pages, isRead, id) {
 						type: "checkbox",
 						name: "Read",
 						id: `isRead-${id}`,
+						class: "isReadCheck",
 						checked: isRead,
 					},
 				},
@@ -89,6 +91,10 @@ function BookCard(title, author, pages, isRead, id) {
 
 // Creates new Book object and push it into the array.
 function addBookToLibrary(title, author, pages, isRead) {
+	if (!title || !author || !pages) {
+		alert("Fill out all the fields.");
+		return;
+	}
 	bookLibrary.push(new Book(title, author, pages, isRead));
 }
 
@@ -129,7 +135,9 @@ newBookBtn.addEventListener("click", () => {
 	bookForm.setAttribute("style", "visibility: visible");
 });
 
-submitBtn.addEventListener("click", () => {
+submitBtn.addEventListener("click", (e) => {
+	e.preventDefault();
+
 	let title = bookTitleName.value;
 	let author = bookAuthorName.value;
 	let pages = bookPagesCount.value;
@@ -152,5 +160,27 @@ submitBtn.addEventListener("click", () => {
 	isReadCheck.checked = isRead;
 
 	resetInput();
+
+	bookForm.setAttribute("style", "display: none");
 	bookForm.setAttribute("style", "visibility: hidden");
+});
+
+library.addEventListener("change", (e) => {
+	if (e.target.type === "checkbox" && e.target.name === "Read") {
+		const bookCard = e.target.closest(".book-card"); // gets the card
+		if (!bookCard) return;
+
+		const bookID = bookCard.dataset.id; // gets the data-id
+
+		// find the book in the array using the ID
+		const book = bookLibrary.find((b) => b.getID() === bookID);
+
+		if (book) {
+			book.updateReadStatus(e.target.checked); // use prototype function
+			console.log(`Book ID ${bookID} read status updated to : ${book.isRead}`);
+		}
+	}
+
+	console.table(bookLibrary); // log the update
+	
 });
