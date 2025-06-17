@@ -5,6 +5,7 @@ const newBookBtn = document.querySelector(".add-btn");
 const submitBtn = document.querySelector("#submit-btn");
 const library = document.querySelector(".library");
 const cardReadCheck = document.querySelector(".isReadCheck");
+const formCloseBtn = document.querySelector('close-btn');
 
 // Elements in form
 const bookTitleName = document.getElementById("book-title");
@@ -133,6 +134,11 @@ function createBookCardElement(obj) {
 
 newBookBtn.addEventListener("click", () => {
 	bookForm.setAttribute("style", "visibility: visible");
+});
+
+formCloseBtn.addEventListener('click', () => {
+	bookForm.setAttribute("style", "display: none");
+	bookForm.setAttribute("style", "visibility: hidden");
 });
 
 submitBtn.addEventListener("click", (e) => {
