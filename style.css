@@ -128,7 +128,7 @@ body {
 			border: 4px solid #1f2f47;
 			border-radius: 24px;
 
-			background-color: rgb(250, 92, 92);
+			background-color: #fa5c5c;
 
 			cursor: pointer;
 		}
@@ -164,6 +164,14 @@ body {
 			height: 1.1rem;
 		}
 
+		input:valid {
+			border-color: greenyellow;
+		}
+
+		input:focus {
+			outline: none;
+		}
+
 		#submit-btn {
 			background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
 			background-color: #2e466e;
@@ -193,13 +201,13 @@ body {
 	/* Style for book cards */
 	.book-card {
 		width: 300px;
-		height: 200px;
+		height: 240px;
 		background-color: var(--card-clr);
 		border: 6px solid var(--border-clr);
 		border-radius: 16px;
 
 		display: grid;
-		grid-template-rows: 3fr 1fr 1fr 1fr;
+		grid-template-rows: 3fr 1fr 1fr 1fr 1.5fr;
 
 		.book-title {
 			font-size: 1.8rem;
@@ -211,6 +219,7 @@ body {
 
 		p:not(.book-title) {
 			margin-left: 25px;
+			align-self: center;
 		}
 
 		span {
@@ -221,6 +230,20 @@ body {
 			height: 14px;
 			width: 14px;
 			margin-right: 6px;
+		}
+
+		.del-btn-container {
+			align-content: center;
+			justify-self: center;
+		}
+
+		.delete-btn {
+			background-color: #fa5c5c;
+			color: #fff;
+
+			border-radius: 18px;
+			border: 4px solid #b16863;
+			cursor: pointer;
 		}
 	}
 }
