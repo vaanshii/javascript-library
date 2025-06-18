@@ -205,6 +205,28 @@ library.addEventListener("change", (e) => {
 			console.log(`Book ID ${bookID} read status updated to : ${book.isRead}`);
 		}
 	}
+});
 
-	console.table(bookLibrary); // log the update
+library.addEventListener("click", (e) => {
+	if (e.target.classList.contains("delete-btn")) {
+		const bookCard = e.target.closest(".book-card");
+
+		if (!bookCard) return;
+
+		const bookID = bookCard.dataset.id;
+
+		const book = bookLibrary.find((b) => b.getID() === bookID);
+
+		const card = document.querySelector(`.book-card[data-id="${bookID}"]`);
+		if(card) card.remove();
+
+		if (book) {
+			const index = bookLibrary.findIndex((b) => b.getID() === bookID);
+			if(index !== -1) bookLibrary.splice(index, 1);
+			// Log deletion
+			console.log(`Successfully Deleted Book ID: ${bookID}`);
+		}
+
+		console.table(bookLibrary);
+	}
 });
