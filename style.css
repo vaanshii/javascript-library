@@ -215,6 +215,8 @@ body {
 			align-content: center;
 			justify-self: center;
 			color: var(--font-clr);
+
+			text-align: center;
 		}
 
 		p:not(.book-title) {
